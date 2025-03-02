@@ -15,6 +15,14 @@ The following architecture diagram provides an overview of the **ETL (Extract, T
 3. **Data Ingestion**: Snowpipe automatically loads data from **S3 into Snowflake**.  
 4. **Data Analysis & Visualization**: Power BI connects to Snowflake for advanced **data analytics and visualization**.  
 
+## **Snowflake SQL Scripts**  
+The following SQL scripts set up the Snowflake environment:  
+
+✅ **[`01_s3_integration.sql`](snowflake_scripts/01_s3_integration.sql)** → Establishes an **AWS S3 Integration** with Snowflake.  
+✅ **[`02_create_tables.sql`](snowflake_scripts/02_create_tables.sql)** → Creates the **Spotify database and tables**.  
+✅ **[`03_s3_external_stages.sql`](snowflake_scripts/03_s3_external_stages.sql)** → Defines **External Stages** for AWS S3.  
+✅ **[`04_snowpipes.sql`](snowflake_scripts/04_snowpipes.sql)** → Creates **Snowpipe pipelines** for automated data ingestion.  
+
 ## **Technologies Used**  
 - **Snowflake** (Data Warehouse)  
 - **AWS Lambda** (Serverless Functions)  
@@ -24,16 +32,21 @@ The following architecture diagram provides an overview of the **ETL (Extract, T
 - **Power BI** (Data Visualization)  
 
 ## **Tables & Data Flow**  
-- `tbl_artist` - Stores artist-related data.  
 - `tbl_album` - Stores album details.  
+- `tbl_artist` - Stores artist-related data.  
 - `tbl_songs` - Stores track-level information.  
 
 ## **Power BI Analytics**  
-After successfully populating **Snowflake tables**, I connected **Power BI** to the data warehouse and performed **data analytics**. Key insights include:  
-✅ **Top Songs by Popularity**  
-✅ **Top Artists by Number of Top Songs**  
-✅ **Album Release Trends**  
-✅ **Most Popular Albums**  
+After successfully populating **Snowflake tables**, I connected **Power BI** to the data warehouse and performed **data analytics**. The **Power BI report file** can be found at:  
+
+📂 **[PowerBI/spotify_top_100_analysis](PowerBI/spotify_top_100_analysis.pbix)**  
+
+### **Key Insights from Power BI Dashboard:**  
+✅ **Top Songs by Popularity** 🎵  
+✅ **Top Artists by Number of Top Songs** 🎤  
+✅ **Album Release Trends Over Time** 📅  
+✅ **Most Popular Albums** 💿  
+
 
 ## **Next Steps**  
 - Optimize **Snowpipe performance** for faster data ingestion.  
